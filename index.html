@@ -1644,29 +1644,311 @@
 
 <div class="afa-wrap">
 
+  <!-- ============================================ -->
+  <!-- ★ WHERE SHOULD I START WITH AI? — HERO BLOCK -->
+  <!-- ============================================ -->
+  <style>
+    .start-hero { background:linear-gradient(135deg,#1C1C2E 0%,#2D2D44 60%,#3A2D52 100%);border-radius:24px;padding:36px 40px 30px;margin-bottom:22px;border:2px solid #E8711A;box-shadow:0 12px 40px rgba(232,113,26,.18);position:relative;overflow:hidden; }
+    .start-hero::before { content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(232,113,26,.25),transparent 70%);pointer-events:none; }
+    .start-hero::after { content:'';position:absolute;bottom:-80px;left:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(155,95,224,.18),transparent 70%);pointer-events:none; }
+    .start-badge { display:inline-flex;align-items:center;gap:7px;padding:6px 14px;border-radius:30px;background:linear-gradient(135deg,#E8711A,#9B5FE0);color:white;font-family:'Sora',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;position:relative;z-index:1; }
+    .start-hero h2 { font-family:'Sora',sans-serif;font-size:32px;font-weight:800;line-height:1.15;margin-bottom:8px;background:linear-gradient(90deg,#E8711A,#ffb366,#9B5FE0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;z-index:1; }
+    .start-hero .start-sub { font-family:'Sora',sans-serif;font-size:15px;font-weight:600;color:#FABC2A;margin-bottom:18px;position:relative;z-index:1; }
+    .start-hero p.start-lead { font-size:14px;color:rgba(255,255,255,.78);line-height:1.65;max-width:780px;margin-bottom:18px;position:relative;z-index:1; }
+
+    .start-section { background:white;border-radius:18px;padding:26px 32px;margin-bottom:18px;box-shadow:0 4px 20px rgba(0,0,0,.06); }
+    .start-section h3 { font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:var(--text);margin-bottom:6px;display:flex;align-items:center;gap:10px; }
+    .start-section h3 .icon { display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#E8711A,#9B5FE0);color:white;font-size:18px; }
+    .start-section .h3-sub { font-size:13px;color:var(--muted);margin-bottom:18px;margin-left:44px; }
+    .start-section p { font-size:13.5px;line-height:1.65;color:var(--text);margin-bottom:10px; }
+    .start-section ul { margin:8px 0 12px 18px; }
+    .start-section li { font-size:13.5px;line-height:1.65;color:var(--text);margin-bottom:5px; }
+
+    .start-callout { background:linear-gradient(135deg,#FFF4E6,#FFE9D9);border-left:4px solid #E8711A;border-radius:10px;padding:16px 20px;margin:14px 0;font-size:13.5px;line-height:1.6;color:#5C2E00; }
+    .start-callout strong { color:#9B4400; }
+
+    .start-link-btn { display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;background:linear-gradient(135deg,#E8711A,#9B5FE0);color:white;font-family:'Sora',sans-serif;font-size:13px;font-weight:700;text-decoration:none;margin-top:8px;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 14px rgba(232,113,26,.3); }
+    .start-link-btn:hover { transform:translateY(-1px);box-shadow:0 6px 18px rgba(232,113,26,.4); }
+    .start-link-secondary { display:inline-flex;align-items:center;gap:6px;color:#E8711A;font-family:'Sora',sans-serif;font-size:13px;font-weight:700;text-decoration:none; }
+    .start-link-secondary:hover { text-decoration:underline; }
+
+    /* 4-Step Framework */
+    .framework-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px; }
+    .step-card { background:#F8F9FF;border-radius:14px;padding:22px 20px;border-top:4px solid #E8711A;position:relative;transition:transform .2s,box-shadow .2s; }
+    .step-card:hover { transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.09); }
+    .step-card:nth-child(2) { border-top-color:#FABC2A; }
+    .step-card:nth-child(3) { border-top-color:#9B5FE0; }
+    .step-card:nth-child(4) { border-top-color:#00897B; }
+    .step-num { display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#1C1C2E,#3A3A55);color:white;font-family:'Sora',sans-serif;font-size:16px;font-weight:800;margin-bottom:12px; }
+    .step-card h4 { font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.25; }
+    .step-card p { font-size:12.5px;line-height:1.55;color:var(--muted);margin-bottom:8px; }
+    .step-card ul { margin:6px 0 0 16px;padding:0; }
+    .step-card li { font-size:12px;line-height:1.5;color:var(--text);margin-bottom:4px; }
+    @media(max-width:900px){ .framework-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:600px){ .framework-grid{grid-template-columns:1fr;} }
+
+    /* Tools table */
+    .tools-table { width:100%;border-collapse:collapse;margin-top:14px;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.05); }
+    .tools-table th { background:linear-gradient(135deg,#1C1C2E,#2D2D44);color:white;padding:14px 16px;text-align:left;font-family:'Sora',sans-serif;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase; }
+    .tools-table td { padding:14px 16px;border-bottom:1px solid #F0F2F8;font-size:13px;line-height:1.5;color:var(--text);vertical-align:top; }
+    .tools-table tr:last-child td { border-bottom:none; }
+    .tools-table tr:nth-child(even) td { background:#FAFBFE; }
+    .tools-table strong { font-family:'Sora',sans-serif;font-weight:700;color:#1C1C2E; }
+
+    /* FAQ accordion */
+    .faq-list { margin-top:14px; }
+    .faq-item { border-bottom:1px solid #E8EAF2;padding:0; }
+    .faq-item:last-child { border-bottom:none; }
+    .faq-item summary { padding:16px 4px;cursor:pointer;font-family:'Sora',sans-serif;font-size:14px;font-weight:600;color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px; }
+    .faq-item summary::-webkit-details-marker { display:none; }
+    .faq-item summary::after { content:'＋';font-size:18px;color:#E8711A;flex-shrink:0;transition:transform .2s; }
+    .faq-item[open] summary::after { content:'－'; }
+    .faq-item summary:hover { color:#E8711A; }
+    .faq-item .faq-body { padding:0 4px 18px;font-size:13px;line-height:1.65;color:var(--muted); }
+    .faq-item .faq-body a { color:#E8711A;text-decoration:none;font-weight:600; }
+    .faq-item .faq-body a:hover { text-decoration:underline; }
+
+    .it-note { background:linear-gradient(135deg,#1C1C2E,#3A2D52);color:white;border-radius:18px;padding:26px 32px;margin-bottom:18px;position:relative;overflow:hidden; }
+    .it-note::before { content:'💬';position:absolute;top:-20px;right:-10px;font-size:140px;opacity:.06; }
+    .it-note h3 { font-family:'Sora',sans-serif;font-size:18px;font-weight:800;margin-bottom:10px;color:#FABC2A;display:flex;align-items:center;gap:10px; }
+    .it-note p { font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.85);margin-bottom:10px; }
+    .it-note p:last-child { margin-bottom:0; }
+    .it-note a { color:#FABC2A;font-weight:600;text-decoration:none; }
+    .it-note a:hover { text-decoration:underline; }
+  </style>
+
+  <div class="start-hero">
+    <div class="start-badge">★ Start Here · For Every Newfold Employee</div>
+    <h2>Where Should I Start With AI?</h2>
+    <div class="start-sub">Turning Time-Consuming Work into Smarter Work</div>
+    <p class="start-lead">AI is one of the most exciting opportunities we have at Newfold Digital, and we want every employee to be part of that journey. We believe AI can help you work smarter, reclaim time, and focus on the work that matters most. The IT team is here as your partner in making that happen — we're responsible for managing costs and security on behalf of the business, so we've built a simple process to help you get the right tools for the right work.</p>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- ⚡ QUICK ACCESS BAR — JUMP TO YOUR TOOLS     -->
+  <!-- ============================================ -->
+  <style>
+    .qa-bar { background:white;border-radius:18px;padding:22px 26px;margin-bottom:18px;box-shadow:0 4px 20px rgba(0,0,0,.06);border:1px solid #F0F2F8; }
+    .qa-bar-hdr { display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap; }
+    .qa-bar-title { font-family:'Sora',sans-serif;font-size:14px;font-weight:800;color:var(--text);display:flex;align-items:center;gap:9px; }
+    .qa-bar-title .qa-bolt { display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#FABC2A,#E8711A);color:white;font-size:14px; }
+    .qa-bar-sub { font-size:11.5px;color:var(--muted);letter-spacing:.02em; }
+    .qa-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:10px; }
+    .qa-pill { display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:11px;text-decoration:none;background:#F8F9FF;border:1px solid #EAEDF7;transition:transform .15s,box-shadow .15s,border-color .15s,background .15s; }
+    .qa-pill:hover { transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.08);border-color:#E8711A;background:white; }
+    .qa-pill .qa-emoji { width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0; }
+    .qa-pill .qa-text { display:flex;flex-direction:column;min-width:0; }
+    .qa-pill .qa-name { font-family:'Sora',sans-serif;font-size:12.5px;font-weight:700;color:var(--text);line-height:1.2;display:flex;align-items:center;gap:5px; }
+    .qa-pill .qa-name .qa-arrow { color:#E8711A;font-size:11px;transition:transform .15s; }
+    .qa-pill:hover .qa-arrow { transform:translate(2px,-2px); }
+    .qa-pill .qa-desc { font-size:10.5px;color:var(--muted);line-height:1.3;margin-top:1px; }
+
+    .qa-pill.qa-primary { background:linear-gradient(135deg,#FFF4E6,#FFE9D9);border-color:#F5C28A; }
+    .qa-pill.qa-primary .qa-emoji { background:linear-gradient(135deg,#E8711A,#9B5FE0);color:white; }
+    .qa-pill.qa-teams { background:linear-gradient(135deg,#EEF2FF,#E0E7FF);border-color:#C7D2FE; }
+    .qa-pill.qa-teams .qa-emoji { background:#4F52B2;color:white; }
+    .qa-pill.qa-license { background:linear-gradient(135deg,#FEF3F2,#FEE4E2);border-color:#FECDCA; }
+    .qa-pill.qa-license .qa-emoji { background:#B42318;color:white; }
+
+    @media(max-width:900px){ .qa-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:520px){ .qa-grid{grid-template-columns:1fr;} }
+  </style>
+
+  <div class="qa-bar">
+    <div class="qa-bar-hdr">
+      <div class="qa-bar-title"><span class="qa-bolt">⚡</span>Quick Access · Jump Straight to Your Tools</div>
+      <div class="qa-bar-sub">Bookmark this — your daily AI toolkit, one click away</div>
+    </div>
+    <div class="qa-grid">
+      <a class="qa-pill qa-primary" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener">
+        <div class="qa-emoji">💬</div>
+        <div class="qa-text">
+          <div class="qa-name">M365 Copilot Chat <span class="qa-arrow">↗</span></div>
+          <div class="qa-desc">Free for all employees</div>
+        </div>
+      </a>
+      <a class="qa-pill qa-primary" href="https://gpt.newfold.com/" target="_blank" rel="noopener">
+        <div class="qa-emoji">🚀</div>
+        <div class="qa-text">
+          <div class="qa-name">Nova (Newfold GPT) <span class="qa-arrow">↗</span></div>
+          <div class="qa-desc">Newfold's internal GPT</div>
+        </div>
+      </a>
+      <a class="qa-pill" href="https://api-gw.builderservices.io/ai-api/AiAssistant" target="_blank" rel="noopener">
+        <div class="qa-emoji" style="background:#E0F2F1;color:#00897B;">🤖</div>
+        <div class="qa-text">
+          <div class="qa-name">Newfold AI Assistants <span class="qa-arrow">↗</span></div>
+          <div class="qa-desc">Custom internal assistants</div>
+        </div>
+      </a>
+      <a class="qa-pill" href="https://claude.ai/login" target="_blank" rel="noopener">
+        <div class="qa-emoji" style="background:#FFF4E6;color:#D97706;">🧭</div>
+        <div class="qa-text">
+          <div class="qa-name">Claude <span class="qa-arrow">↗</span></div>
+          <div class="qa-desc">Reasoning &amp; long-form work</div>
+        </div>
+      </a>
+      <a class="qa-pill" href="https://itresources.newfold.com/airepo/ai-tool-comparison/" target="_blank" rel="noopener">
+        <div class="qa-emoji" style="background:#F3E8FF;color:#7C3AED;">📊</div>
+        <div class="qa-text">
+          <div class="qa-name">AI Tool Comparison <span class="qa-arrow">↗</span></div>
+          <div class="qa-desc">Compare all approved tools</div>
+        </div>
+      </a>
+      <a class="qa-pill" href="https://adoption.microsoft.com/en-us/copilot-prompt-gallery/" target="_blank" rel="noopener">
+        <div class="qa-emoji" style="background:#E3F2FD;color:#0078D4;">💡</div>
+        <div class="qa-text">
+          <div class="qa-name">Copilot Prompt Gallery <span class="qa-arrow">↗</span></div>
+          <div class="qa-desc">Ready-to-use prompts</div>
+        </div>
+      </a>
+      <a class="qa-pill qa-teams" href="https://teams.microsoft.com/l/channel/19%3Ayyfit5VNxuv2NJigEKXCdNz4F8A8DFfm_KlkQehDCLM1%40thread.tacv2/General?groupId=caeb29f8-3623-4e48-9f73-a6a4ce90d80a&amp;tenantId=d3008fd4-0d20-418b-bf30-4e70d910c727" target="_blank" rel="noopener">
+        <div class="qa-emoji">👥</div>
+        <div class="qa-text">
+          <div class="qa-name">AI Tools Teams Group <span class="qa-arrow">↗</span></div>
+          <div class="qa-desc">Collaborate with IT</div>
+        </div>
+      </a>
+      <a class="qa-pill qa-license" href="https://newfold.service-now.com/sp" target="_blank" rel="noopener">
+        <div class="qa-emoji">🎟️</div>
+        <div class="qa-text">
+          <div class="qa-name">Request a License <span class="qa-arrow">↗</span></div>
+          <div class="qa-desc">Submit via ServiceNow</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 🎓 TRAINING AVAILABLE — LEARN & LEVEL UP     -->
+  <!-- ============================================ -->
+  <style>
+    .train-section { background:linear-gradient(135deg,#FFFFFF,#F8F9FF);border-radius:18px;padding:26px 30px;margin-bottom:18px;box-shadow:0 4px 22px rgba(0,0,0,.06);border:1px solid #EAEDF7; }
+    .train-hdr { display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap; }
+    .train-title { font-family:'Sora',sans-serif;font-size:18px;font-weight:800;color:var(--text);display:flex;align-items:center;gap:10px; }
+    .train-title .train-icon { display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#9B5FE0,#5B7FE8);color:white;font-size:18px; }
+    .train-sub { font-size:12px;color:var(--muted);letter-spacing:.02em; }
+
+    .train-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:14px; }
+    .train-card { display:flex;flex-direction:column;gap:8px;padding:18px 18px 16px;border-radius:14px;text-decoration:none;background:white;border:1px solid #EAEDF7;transition:transform .18s,box-shadow .18s,border-color .18s;position:relative;overflow:hidden; }
+    .train-card::before { content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#E8711A,#9B5FE0); }
+    .train-card:hover { transform:translateY(-4px);box-shadow:0 14px 32px rgba(0,0,0,.10);border-color:#9B5FE0; }
+    .train-card.t-channel::before { background:linear-gradient(90deg,#E8711A,#FABC2A); }
+    .train-card.t-course::before { background:linear-gradient(90deg,#5B7FE8,#9B5FE0); }
+    .train-card.t-ethics::before { background:linear-gradient(90deg,#00897B,#5B7FE8); }
+    .train-card.t-copilot::before { background:linear-gradient(90deg,#0078D4,#5BA8FF); }
+    .train-card.t-anthropic::before { background:linear-gradient(90deg,#D97706,#F59E0B); }
+
+    .train-tag { display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-family:'Sora',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;align-self:flex-start;margin-top:6px; }
+    .train-tag.tag-channel { background:#FFF4E6;color:#9B4400; }
+    .train-tag.tag-course { background:#F3E8FF;color:#6B21A8; }
+    .train-tag.tag-ethics { background:#E0F2F1;color:#00695C; }
+    .train-tag.tag-copilot { background:#E3F2FD;color:#0078D4; }
+    .train-tag.tag-anthropic { background:#FFF4E6;color:#92400E; }
+
+    .train-emoji { font-size:30px;line-height:1; }
+    .train-name { font-family:'Sora',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);line-height:1.3;display:flex;align-items:flex-start;gap:6px; }
+    .train-name .train-arrow { color:#E8711A;font-size:13px;transition:transform .15s;flex-shrink:0;margin-top:2px; }
+    .train-card:hover .train-arrow { transform:translate(2px,-2px); }
+    .train-desc { font-size:12px;line-height:1.5;color:var(--muted);margin-top:auto; }
+    .train-source { font-size:10.5px;color:#9CA3AF;font-family:'Sora',sans-serif;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:4px; }
+
+    @media(max-width:900px){ .train-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:600px){ .train-grid{grid-template-columns:1fr;} }
+  </style>
+
+  <div class="train-section">
+    <div class="train-hdr">
+      <div class="train-title"><span class="train-icon">🎓</span>Training Available · Learn &amp; Level Up</div>
+      <div class="train-sub">Curated AI learning — courses, channels, and deep dives</div>
+    </div>
+    <div class="train-grid">
+
+      <a class="train-card t-channel" href="https://fold.newfold.com/channels/9905918" target="_blank" rel="noopener">
+        <div class="train-emoji">📡</div>
+        <div class="train-name">AI Hub — Latest on AI &amp; Use Cases <span class="train-arrow">↗</span></div>
+        <div class="train-desc">Stay current on what's launching, what teams are trying, and real Newfold use cases.</div>
+        <span class="train-tag tag-channel">📺 Channel</span>
+        <div class="train-source">fold.newfold.com</div>
+      </a>
+
+      <a class="train-card t-course" href="https://www.myworkday.com/web/learning/course/3b422828728d1001601ec54c7cca0000?type=9882927d138b100019b928e75843018d&amp;record=0bb9ab9bc69f1001534dc084e0320000" target="_blank" rel="noopener">
+        <div class="train-emoji">🚀</div>
+        <div class="train-name">Working Smarter with AI at Newfold <span class="train-arrow">↗</span></div>
+        <div class="train-desc">Foundational course for every employee — practical ways AI fits into your day.</div>
+        <span class="train-tag tag-course">🎯 Workday Course</span>
+        <div class="train-source">myworkday.com</div>
+      </a>
+
+      <a class="train-card t-ethics" href="https://www.myworkday.com/web/learning/course/38172e101b73100107998ac87e410000/lesson/3b422828728d1000b94f0cfe16120000?type=9882927d138b100019b928e75843018d" target="_blank" rel="noopener">
+        <div class="train-emoji">⚖️</div>
+        <div class="train-name">AI Ethics Essentials <span class="train-arrow">↗</span></div>
+        <div class="train-desc">Responsible AI principles every Newfold employee should know.</div>
+        <span class="train-tag tag-ethics">🛡️ Workday Course</span>
+        <div class="train-source">myworkday.com</div>
+      </a>
+
+      <a class="train-card t-copilot" href="https://fold.newfold.com/contents/42203580" target="_blank" rel="noopener">
+        <div class="train-emoji">📝</div>
+        <div class="train-name">Use Copilot to Enhance Productivity in Microsoft Word <span class="train-arrow">↗</span></div>
+        <div class="train-desc">Hands-on guide to making Word feel effortless with Copilot.</div>
+        <span class="train-tag tag-copilot">⚡ Quick Module</span>
+        <div class="train-source">fold.newfold.com</div>
+      </a>
+
+      <a class="train-card t-anthropic" href="https://anthropic.skilljar.com" target="_blank" rel="noopener" style="grid-column:span 2;background:linear-gradient(135deg,#FFF4E6,#FEF3C7);border:1px solid #FDE68A;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="train-emoji" style="font-size:38px;">🧠</div>
+          <div style="flex:1;">
+            <div class="train-name">Anthropic — 13 Free Deep-Dive Study Courses (Claude Expansion) <span class="train-arrow">↗</span></div>
+            <div class="train-desc" style="margin-top:4px;">Anthropic's full Skilljar academy — prompt engineering, agents, MCP, real-world Claude workflows. The fastest way to go from beginner to power user.</div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;">
+          <span class="train-tag tag-anthropic">🎁 Free · Anthropic Academy</span>
+          <div class="train-source">anthropic.skilljar.com</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- You Already Have AI Tools -->
+  <div class="start-section">
+    <h3><span class="icon">💡</span>You Already Have AI Tools — Start Here Today</h3>
+    <div class="h3-sub">Free, approved, and ready for every employee through MyApps.</div>
+    <p><a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener" style="color:#E8711A;font-weight:700;text-decoration:none;">Microsoft Copilot Chat</a> and <a href="https://api-gw.builderservices.io/nf-ai-api/NewfoldGpt" target="_blank" rel="noopener" style="color:#E8711A;font-weight:700;text-decoration:none;">Nova</a> are available to every employee through the MyApps portal at no additional cost. Use them to experiment, learn, and shape your ideas <em>before</em> requesting any paid AI tools.</p>
+    <p>Additional Engineering tools include <a href="https://www.cursor.com/" target="_blank" rel="noopener" style="color:#E8711A;font-weight:700;text-decoration:none;">Cursor AI</a> and <a href="https://github.com/features/copilot" target="_blank" rel="noopener" style="color:#E8711A;font-weight:700;text-decoration:none;">GitHub Copilot</a>.</p>
+    <a class="start-link-secondary" href="https://itresources.newfold.com/airepo/ai-tool-comparison/" target="_blank" rel="noopener">See the full comparison table of all Newfold approved AI tools →</a>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- ★ END "WHERE SHOULD I START WITH AI?" BLOCK  -->
+  <!-- ============================================ -->
+
   <!-- Tools Access callout -->
   <div style="background:linear-gradient(135deg,#1C1C2E,#2D2D44);border-radius:16px;padding:20px 26px;margin-bottom:20px;border:1.5px solid #3D3D5C;">
     <div style="font-family:'Sora',sans-serif;font-size:13px;font-weight:700;color:#E8711A;margin-bottom:14px;letter-spacing:.05em;text-transform:uppercase;">🔐 Newfold Approved AI Tools — Access Guide</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
       <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:12px 14px;border-left:3px solid #0078d4;">
         <div style="font-family:'Sora',sans-serif;font-size:11px;font-weight:700;color:#5BA8FF;margin-bottom:4px;">MICROSOFT</div>
-        <div style="font-size:12px;color:white;font-weight:600;margin-bottom:2px;">Copilot Chat Basic</div>
+        <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener" style="font-size:12px;color:white;font-weight:600;margin-bottom:2px;text-decoration:none;display:block;">Copilot Chat Basic ↗</a>
         <div style="font-size:11px;color:rgba(255,255,255,.6);margin-bottom:6px;">m365.cloud.microsoft/chat · Free for all</div>
-        <div style="font-size:12px;color:white;font-weight:600;margin-bottom:2px;">Copilot Chat Premium</div>
+        <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener" style="font-size:12px;color:white;font-weight:600;margin-bottom:2px;text-decoration:none;display:block;">Copilot Chat Premium ↗</a>
         <div style="font-size:11px;color:rgba(255,255,255,.6);">Embedded in M365 apps · Paid license via manager</div>
       </div>
       <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:12px 14px;border-left:3px solid #E8711A;">
         <div style="font-family:'Sora',sans-serif;font-size:11px;font-weight:700;color:#E8711A;margin-bottom:4px;">NEWFOLD INTERNAL</div>
-        <div style="font-size:12px;color:white;font-weight:600;margin-bottom:2px;">Nova (Newfold GPT) 🚀</div>
+        <a href="https://api-gw.builderservices.io/nf-ai-api/NewfoldGpt" target="_blank" rel="noopener" style="font-size:12px;color:white;font-weight:600;margin-bottom:2px;text-decoration:none;display:block;">Nova (Newfold GPT) 🚀 ↗</a>
         <div style="font-size:11px;color:rgba(255,255,255,.6);margin-bottom:6px;">gpt.newfold.com · Free; Plus via ServiceNow</div>
-        <div style="font-size:12px;color:white;font-weight:600;margin-bottom:2px;">Newfold Gator Claw 🐊</div>
-        <div style="font-size:11px;color:rgba(255,255,255,.6);">Data analysis & custom assistants · Free; Advanced via ServiceNow</div>
+        <a href="https://api-gw.builderservices.io/ai-api/AiAssistant" target="_blank" rel="noopener" style="font-size:12px;color:white;font-weight:600;margin-bottom:2px;text-decoration:none;display:block;">Newfold AI Assistants 🤖 ↗</a>
+        <div style="font-size:11px;color:rgba(255,255,255,.6);">Built internally at Newfold · Data analysis & custom assistants · Free; Advanced via ServiceNow</div>
       </div>
       <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:12px 14px;border-left:3px solid #00897B;">
         <div style="font-family:'Sora',sans-serif;font-size:11px;font-weight:700;color:#4DB6AC;margin-bottom:4px;">EXTERNAL / DEVELOPER</div>
-        <div style="font-size:12px;color:white;font-weight:600;margin-bottom:2px;">Claude · claude.ai</div>
+        <a href="https://claude.ai/login" target="_blank" rel="noopener" style="font-size:12px;color:white;font-weight:600;margin-bottom:2px;text-decoration:none;display:block;">Claude · claude.ai ↗</a>
         <div style="font-size:11px;color:rgba(255,255,255,.6);margin-bottom:6px;">Paid · Request via manager + use case justification</div>
-        <div style="font-size:12px;color:white;font-weight:600;margin-bottom:2px;">GitHub Copilot &amp; Cursor</div>
+        <a href="https://github.com/features/copilot" target="_blank" rel="noopener" style="font-size:12px;color:white;font-weight:600;margin-bottom:2px;text-decoration:none;display:inline;">GitHub Copilot ↗</a> <span style="font-size:12px;color:white;">&amp;</span> <a href="https://www.cursor.com/" target="_blank" rel="noopener" style="font-size:12px;color:white;font-weight:600;text-decoration:none;display:inline;">Cursor ↗</a>
         <div style="font-size:11px;color:rgba(255,255,255,.6);">Paid · IT Service Desk / ServiceNow request</div>
       </div>
     </div>
@@ -1734,21 +2016,21 @@
       <div class="afa-ex"><div class="afa-dot" style="background:#E8711A;"></div>"Compare these two proposals side by side"</div>
       <div class="afa-card-verdict" style="background:#E8711A11;color:#b34f00;">Use for longer docs where nuance matters. Request access via manager + use case justification.</div>
     </div>
-    <!-- Gator Claw -->
+    <!-- Newfold AI Assistants -->
     <div class="afa-card">
       <div class="afa-card-top">
         <a href="https://api-gw.builderservices.io/ai-api/AiAssistant" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px;text-decoration:none;">
-          <div class="afa-card-logo" style="background:#E0F2F122;">🐊</div>
-          <div class="afa-card-name">Gator Claw</div>
+          <div class="afa-card-logo" style="background:#E0F2F122;">🤖</div>
+          <div class="afa-card-name">Newfold AI Assistants</div>
         </a>
       </div>
       <div class="afa-card-tag" style="background:#E0F2F1;color:#00897B;">Newfold Internal · Free/Paid+</div>
-      <div class="afa-card-tagline">Newfold's purpose-built AI — create custom assistants with your own guidelines and tone of voice.</div>
+      <div class="afa-card-tagline">Newfold's internally-built AI — create custom assistants with your own guidelines and tone of voice.</div>
       <div class="afa-card-label">Examples</div>
       <div class="afa-ex"><div class="afa-dot" style="background:#00897B;"></div>"Help me draft this internal policy announcement"</div>
       <div class="afa-ex"><div class="afa-dot" style="background:#00897B;"></div>"Summarize this internal report for leadership"</div>
       <div class="afa-ex"><div class="afa-dot" style="background:#00897B;"></div>"Write talking points for my team meeting"</div>
-      <div class="afa-card-verdict" style="background:#E0F2F122;color:#00695C;">Use for confidential internal content — build custom writing assistants tuned to Newfold's voice.</div>
+      <div class="afa-card-verdict" style="background:#E0F2F122;color:#00695C;">Use for confidential internal content — build custom writing assistants tuned to your team's voice.</div>
     </div>
     <!-- Cursor -->
     <div class="afa-card">
@@ -1761,7 +2043,7 @@
       <div class="afa-card-tag" style="background:#eee;color:#888;">Not ideal here · Paid</div>
       <div class="afa-card-tagline">Cursor is built for code — not the right tool for general writing tasks.</div>
       <div class="afa-card-label">Skip for writing</div>
-      <div class="afa-skip">Cursor doesn't have a chat-first writing interface. Use Nova, Claude, Copilot, or Gator Claw instead.</div>
+      <div class="afa-skip">Cursor doesn't have a chat-first writing interface. Use Nova, Claude, Copilot, or Newfold AI Assistants instead.</div>
       <div class="afa-card-verdict" style="background:#f5f5f5;color:#888;">➡ See Cursor in Code & Technical below.</div>
     </div>
   </div>
@@ -1826,21 +2108,21 @@
       <div class="afa-ex"><div class="afa-dot" style="background:#E8711A;"></div>"Read this annual report and list key strategic risks"</div>
       <div class="afa-card-verdict" style="background:#E8711A11;color:#b34f00;">Use when pasting lots of content for deep insights. Request access via manager.</div>
     </div>
-    <!-- Gator Claw -->
+    <!-- Newfold AI Assistants -->
     <div class="afa-card">
       <div class="afa-card-top">
         <a href="https://api-gw.builderservices.io/ai-api/AiAssistant" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px;text-decoration:none;">
-          <div class="afa-card-logo" style="background:#E0F2F122;">🐊</div>
-          <div class="afa-card-name">Gator Claw</div>
+          <div class="afa-card-logo" style="background:#E0F2F122;">🤖</div>
+          <div class="afa-card-name">Newfold AI Assistants</div>
         </a>
       </div>
       <div class="afa-card-tag" style="background:#E0F2F1;color:#00897B;">Best for file analysis · Free/Paid+</div>
-      <div class="afa-card-tagline">Upload files, run Python, analyze datasets — Newfold Gator Claw handle structured data tasks other tools can't.</div>
+      <div class="afa-card-tagline">Upload files, run Python, analyze datasets — Newfold AI Assistants (built internally at Newfold) handle structured data tasks other tools can't.</div>
       <div class="afa-card-label">Examples</div>
       <div class="afa-ex"><div class="afa-dot" style="background:#00897B;"></div>"Upload a customer feedback file and find patterns"</div>
       <div class="afa-ex"><div class="afa-dot" style="background:#00897B;"></div>"Analyze this survey data from an uploaded spreadsheet"</div>
       <div class="afa-ex"><div class="afa-dot" style="background:#00897B;"></div>"Read this internal report and list key strategic risks"</div>
-      <div class="afa-card-verdict" style="background:#E0F2F122;color:#00695C;">Best for structured data tasks: upload a file and let Gator Claw do the heavy lifting.</div>
+      <div class="afa-card-verdict" style="background:#E0F2F122;color:#00695C;">Best for structured data tasks: upload a file and let Newfold AI Assistants do the heavy lifting.</div>
     </div>
     <!-- Cursor -->
     <div class="afa-card">
@@ -1920,12 +2202,12 @@
       <div class="afa-ex"><div class="afa-dot" style="background:#E8711A;"></div>"Play devil's advocate on our product roadmap"</div>
       <div class="afa-card-verdict" style="background:#E8711A11;color:#b34f00;">Use for nuanced strategic thinking, not just a list. Request access via manager.</div>
     </div>
-    <!-- Gator Claw -->
+    <!-- Newfold AI Assistants -->
     <div class="afa-card">
       <div class="afa-card-top">
         <a href="https://api-gw.builderservices.io/ai-api/AiAssistant" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px;text-decoration:none;">
-          <div class="afa-card-logo" style="background:#E0F2F122;">🐊</div>
-          <div class="afa-card-name">Gator Claw</div>
+          <div class="afa-card-logo" style="background:#E0F2F122;">🤖</div>
+          <div class="afa-card-name">Newfold AI Assistants</div>
         </a>
       </div>
       <div class="afa-card-tag" style="background:#E0F2F1;color:#00897B;">Custom team bots · Free/Paid+</div>
@@ -1947,7 +2229,7 @@
       <div class="afa-card-tag" style="background:#eee;color:#888;">Not ideal here · Paid</div>
       <div class="afa-card-tagline">Cursor is optimized for code — not the right fit for creative brainstorming sessions.</div>
       <div class="afa-card-label">Skip for brainstorming</div>
-      <div class="afa-skip">Cursor works best in a code editor context. Use Nova, Claude, Copilot, or Gator Claw for ideas instead.</div>
+      <div class="afa-skip">Cursor works best in a code editor context. Use Nova, Claude, Copilot, or Newfold AI Assistants for ideas instead.</div>
       <div class="afa-card-verdict" style="background:#f5f5f5;color:#888;">➡ Use Nova or Claude for brainstorming instead.</div>
     </div>
   </div>
@@ -2012,21 +2294,21 @@
       <div class="afa-ex"><div class="afa-dot" style="background:#E8711A;"></div>"Help me think through this API integration design"</div>
       <div class="afa-card-verdict" style="background:#E8711A11;color:#b34f00;">Use for complex code review and technical reasoning. Request access via manager.</div>
     </div>
-    <!-- Gator Claw -->
+    <!-- Newfold AI Assistants -->
     <div class="afa-card">
       <div class="afa-card-top">
         <a href="https://api-gw.builderservices.io/ai-api/AiAssistant" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px;text-decoration:none;">
-          <div class="afa-card-logo" style="background:#E0F2F122;">🐊</div>
-          <div class="afa-card-name">Gator Claw</div>
+          <div class="afa-card-logo" style="background:#E0F2F122;">🤖</div>
+          <div class="afa-card-name">Newfold AI Assistants</div>
         </a>
       </div>
       <div class="afa-card-tag" style="background:#E0F2F1;color:#00897B;">Code execution · Free/Paid+</div>
-      <div class="afa-card-tagline">Execute Python code, process files, and build internal automation tools within Newfold's secure environment.</div>
+      <div class="afa-card-tagline">Execute Python code, process files, and build internal automation tools — Newfold AI Assistants are built internally at Newfold for secure, custom workflows.</div>
       <div class="afa-card-label">Examples</div>
       <div class="afa-ex"><div class="afa-dot" style="background:#00897B;"></div>"Run this Python script on my uploaded data file"</div>
       <div class="afa-ex"><div class="afa-dot" style="background:#00897B;"></div>"Build an internal automation tool for our team"</div>
       <div class="afa-ex"><div class="afa-dot" style="background:#00897B;"></div>"Process and transform this CSV with custom logic"</div>
-      <div class="afa-card-verdict" style="background:#E0F2F122;color:#00695C;">Best for Python execution & file processing inside Newfold's secure environment.</div>
+      <div class="afa-card-verdict" style="background:#E0F2F122;color:#00695C;">Best for Python execution &amp; file processing — Newfold's internally-built AI for approved internal use.</div>
     </div>
     <!-- Cursor -->
     <div class="afa-card">
@@ -2059,28 +2341,171 @@
   <div style="padding:24px 26px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
     <div style="background:#F8F9FF;border-radius:12px;padding:16px 18px;border-left:4px solid #10a37f;">
       <div style="font-family:'Sora',sans-serif;font-size:12px;font-weight:700;color:#10a37f;margin-bottom:8px;">💬 I need to write or draft something</div>
-      <div style="font-size:12px;color:var(--text);line-height:1.5;">→ <strong>Nova (Newfold GPT)</strong> for fast drafts<br>→ <strong>Copilot</strong> if you're in Word/Outlook<br>→ <strong>Gator Claw</strong> for secure internal &amp; data analysis tasks<br>→ <strong>Claude</strong> for long or nuanced docs</div>
+      <div style="font-size:12px;color:var(--text);line-height:1.5;">→ <strong><a href="https://api-gw.builderservices.io/nf-ai-api/NewfoldGpt" target="_blank" rel="noopener" style="color:#10a37f;text-decoration:none;">Nova (Newfold GPT)</a></strong> for fast drafts<br>→ <strong><a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener" style="color:#10a37f;text-decoration:none;">Copilot</a></strong> if you're in Word/Outlook<br>→ <strong><a href="https://api-gw.builderservices.io/ai-api/AiAssistant" target="_blank" rel="noopener" style="color:#10a37f;text-decoration:none;">Newfold AI Assistants</a></strong> for secure internal &amp; data analysis tasks<br>→ <strong><a href="https://claude.ai/login" target="_blank" rel="noopener" style="color:#10a37f;text-decoration:none;">Claude</a></strong> for long or nuanced docs</div>
     </div>
     <div style="background:#F8F9FF;border-radius:12px;padding:16px 18px;border-left:4px solid #0078d4;">
       <div style="font-family:'Sora',sans-serif;font-size:12px;font-weight:700;color:#0078d4;margin-bottom:8px;">🔍 I need to research or analyze something</div>
-      <div style="font-size:12px;color:var(--text);line-height:1.5;">→ <strong>Nova (Newfold GPT)</strong> to search the web<br>→ <strong>Copilot</strong> for your Microsoft files<br>→ <strong>Gator Claw</strong> for file processing &amp; data analysis<br>→ <strong>Claude</strong> to analyze large content</div>
+      <div style="font-size:12px;color:var(--text);line-height:1.5;">→ <strong><a href="https://api-gw.builderservices.io/nf-ai-api/NewfoldGpt" target="_blank" rel="noopener" style="color:#0078d4;text-decoration:none;">Nova (Newfold GPT)</a></strong> to search the web<br>→ <strong><a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener" style="color:#0078d4;text-decoration:none;">Copilot</a></strong> for your Microsoft files<br>→ <strong><a href="https://api-gw.builderservices.io/ai-api/AiAssistant" target="_blank" rel="noopener" style="color:#0078d4;text-decoration:none;">Newfold AI Assistants</a></strong> for file processing &amp; data analysis<br>→ <strong><a href="https://claude.ai/login" target="_blank" rel="noopener" style="color:#0078d4;text-decoration:none;">Claude</a></strong> to analyze large content</div>
     </div>
     <div style="background:#F8F9FF;border-radius:12px;padding:16px 18px;border-left:4px solid #7C3AED;">
       <div style="font-family:'Sora',sans-serif;font-size:12px;font-weight:700;color:#7C3AED;margin-bottom:8px;">💻 I need to code or automate something</div>
-      <div style="font-size:12px;color:var(--text);line-height:1.5;">→ <strong>Cursor</strong> for full coding projects<br>→ <strong>Copilot</strong> for Excel/Power BI formulas<br>→ <strong>Gator Claw</strong> for internal systems & IT-approved tools<br>→ <strong>Nova (Newfold GPT)</strong> for quick code snippets</div>
+      <div style="font-size:12px;color:var(--text);line-height:1.5;">→ <strong><a href="https://www.cursor.com/" target="_blank" rel="noopener" style="color:#7C3AED;text-decoration:none;">Cursor</a></strong> for full coding projects<br>→ <strong><a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener" style="color:#7C3AED;text-decoration:none;">Copilot</a></strong> for Excel/Power BI formulas<br>→ <strong><a href="https://api-gw.builderservices.io/ai-api/AiAssistant" target="_blank" rel="noopener" style="color:#7C3AED;text-decoration:none;">Newfold AI Assistants</a></strong> for internal systems &amp; IT-approved tools<br>→ <strong><a href="https://api-gw.builderservices.io/nf-ai-api/NewfoldGpt" target="_blank" rel="noopener" style="color:#7C3AED;text-decoration:none;">Nova (Newfold GPT)</a></strong> for quick code snippets</div>
     </div>
   </div>
   <div style="padding:0 26px 20px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
     <div style="background:#F8F9FF;border-radius:12px;padding:16px 18px;border-left:4px solid #E8711A;">
       <div style="font-family:'Sora',sans-serif;font-size:12px;font-weight:700;color:#E8711A;margin-bottom:8px;">💡 I want to brainstorm ideas</div>
-      <div style="font-size:12px;color:var(--text);line-height:1.5;">→ <strong>Nova (Newfold GPT)</strong> for lots of quick ideas<br>→ <strong>Claude</strong> for deep strategic thinking<br>→ <strong>Copilot</strong> if connected to your company files<br>→ <strong>Gator Claw</strong> if working from visual content</div>
+      <div style="font-size:12px;color:var(--text);line-height:1.5;">→ <strong><a href="https://api-gw.builderservices.io/nf-ai-api/NewfoldGpt" target="_blank" rel="noopener" style="color:#E8711A;text-decoration:none;">Nova (Newfold GPT)</a></strong> for lots of quick ideas<br>→ <strong><a href="https://claude.ai/login" target="_blank" rel="noopener" style="color:#E8711A;text-decoration:none;">Claude</a></strong> for deep strategic thinking<br>→ <strong><a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener" style="color:#E8711A;text-decoration:none;">Copilot</a></strong> if connected to your company files<br>→ <strong><a href="https://api-gw.builderservices.io/ai-api/AiAssistant" target="_blank" rel="noopener" style="color:#E8711A;text-decoration:none;">Newfold AI Assistants</a></strong> if working from visual content</div>
     </div>
     <div style="background:#F8F9FF;border-radius:12px;padding:16px 18px;border-left:4px solid #00897B;">
       <div style="font-family:'Sora',sans-serif;font-size:12px;font-weight:700;color:#00897B;margin-bottom:8px;">🌐 Which ecosystem am I in?</div>
-      <div style="font-size:12px;color:var(--text);line-height:1.5;">→ <strong>Microsoft 365 user?</strong> → Start with Copilot<br>→ <strong>Handling internal/confidential content?</strong> → Start with Gator Claw<br>→ <strong>Just need a general AI?</strong> → Nova (free, internal) or Claude<br>→ <strong>Writing code?</strong> → Cursor is your tool</div>
+      <div style="font-size:12px;color:var(--text);line-height:1.5;">→ <strong>Microsoft 365 user?</strong> → Start with <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener" style="color:#00897B;text-decoration:none;font-weight:700;">Copilot</a><br>→ <strong>Handling internal/confidential content?</strong> → Start with <a href="https://api-gw.builderservices.io/ai-api/AiAssistant" target="_blank" rel="noopener" style="color:#00897B;text-decoration:none;font-weight:700;">Newfold AI Assistants</a><br>→ <strong>Just need a general AI?</strong> → <a href="https://api-gw.builderservices.io/nf-ai-api/NewfoldGpt" target="_blank" rel="noopener" style="color:#00897B;text-decoration:none;font-weight:700;">Nova</a> (free, internal) or <a href="https://claude.ai/login" target="_blank" rel="noopener" style="color:#00897B;text-decoration:none;font-weight:700;">Claude</a><br>→ <strong>Writing code?</strong> → <a href="https://www.cursor.com/" target="_blank" rel="noopener" style="color:#00897B;text-decoration:none;font-weight:700;">Cursor</a> is your tool</div>
     </div>
   </div>
 </div>
+
+  <!-- ============================================ -->
+  <!-- 📋 PROCESS, FRAMEWORK & FAQs (corporate, moved to bottom) -->
+  <!-- ============================================ -->
+
+  <!-- 4-Step Framework -->
+  <div class="start-section">
+    <h3><span class="icon">🧭</span>A Simple 4-Step Framework for AI at Newfold</h3>
+    <div class="h3-sub">This framework helps you think through your AI needs so that when you submit a request, we can move quickly and say yes with confidence.</div>
+
+    <div class="framework-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>Identify Your Use Case</h4>
+        <p>Start with your day-to-day work. Ask yourself:</p>
+        <ul>
+          <li>What tasks take a long time or feel overly manual?</li>
+          <li>What work is repetitive or could be done more efficiently?</li>
+          <li>Where am I spending time that could be better used on higher-value work?</li>
+        </ul>
+        <p style="margin-top:8px;">Common examples: drafting or summarizing content, analyzing data, researching topics, or reducing recurring admin work. The key is identifying a real problem.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Align with Your Manager</h4>
+        <p>Share your idea with your manager and team:</p>
+        <ul>
+          <li>Is this problem worth solving?</li>
+          <li>Does it align with team or business priorities?</li>
+          <li>Is there clear value if this work becomes faster or easier?</li>
+        </ul>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>Research and Experiment</h4>
+        <p>Once you and your manager agree it's worth pursuing:</p>
+        <ul>
+          <li>Use <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener" style="color:#9B5FE0;font-weight:600;">Copilot Chat</a> (Teams or Edge) or <a href="https://api-gw.builderservices.io/nf-ai-api/NewfoldGpt" target="_blank" rel="noopener" style="color:#9B5FE0;font-weight:600;">Nova</a> to explore AI approaches.</li>
+          <li>Try tools through personal or free versions to get hands-on experience.</li>
+          <li>Identify which tools best fit your use case and <a href="https://itresources.newfold.com/airepo/ai-tool-comparison/" target="_blank" rel="noopener" style="color:#9B5FE0;font-weight:600;">why</a>.</li>
+        </ul>
+        <div class="start-callout" style="margin-top:10px;padding:10px 12px;font-size:12px;"><strong>Important:</strong> Do not upload company-sensitive information into non-corporate tools.</div>
+        <p style="font-size:12px;">You don't need all the answers — understanding the problem matters more than naming the perfect tool. IT will help with the rest.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h4>Submit an IT Request</h4>
+        <p>When you've done the thinking and research, submit a request through the ServiceNow IT Portal. Include:</p>
+        <ul>
+          <li><strong>Use Case Description</strong> — the problem you're trying to solve.</li>
+          <li><strong>Estimated Impact</strong> — time or cost savings, even as a rough estimate.</li>
+          <li><strong>Tools Identified</strong> — what you researched and why it fits.</li>
+        </ul>
+        <a class="start-link-btn" style="margin-top:10px;padding:8px 14px;font-size:12px;" href="https://newfold.service-now.com/sp" target="_blank" rel="noopener">📋 Submit AI Tools Request →</a>
+      </div>
+    </div>
+
+    <p style="margin-top:18px;font-size:13px;color:var(--muted);">IT will review your request and work with you to find the best solution. Our goal is to ensure every paid AI tool has a clear purpose — so we can invest wisely and keep expanding access.</p>
+  </div>
+
+  <!-- Corporate AI Tools Available -->
+  <div class="start-section">
+    <h3><span class="icon">🏢</span>Corporate AI Tools Available Today</h3>
+    <div class="h3-sub">Paid AI tools currently part of our corporate toolbox. IT will help determine the best fit based on your use case and security requirements.</div>
+
+    <table class="tools-table">
+      <thead>
+        <tr>
+          <th style="width:24%;">Tool</th>
+          <th style="width:26%;">Best For</th>
+          <th style="width:50%;">Typical Use Cases</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener" style="color:#E8711A;text-decoration:none;"><strong>Microsoft Copilot (Premium) ↗</strong></a></td>
+          <td>Work inside Microsoft 365</td>
+          <td>Writing and summarizing documents, Excel analysis, email drafting, Teams and meeting summaries</td>
+        </tr>
+        <tr>
+          <td><a href="https://claude.ai/login" target="_blank" rel="noopener" style="color:#E8711A;text-decoration:none;"><strong>Claude (Premium) ↗</strong></a></td>
+          <td>Advanced reasoning &amp; long-form work</td>
+          <td>Deep analysis, complex writing, research-heavy tasks, large document synthesis</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="start-callout" style="margin-top:16px;"><strong>Don't see what you need?</strong> Our toolbox is growing. If your use case requires a different tool, include that in your request — we're open to adding new options when there's a clear business need.</div>
+  </div>
+
+  <!-- Note from IT Team -->
+  <div class="it-note">
+    <h3>💬 A Note from the IT Team</h3>
+    <p>We use AI every day and are already saving hundreds of hours across coding, documentation, troubleshooting, and research. This process isn't about creating barriers — it's about helping us say <strong style="color:#FABC2A;">yes faster and more often</strong>.</p>
+    <p>AI adoption at Newfold starts with <em>how you work</em> — not which tool you use. When you bring a clear use case, we can move faster, say yes more often, and help you get real value from AI.</p>
+    <p style="margin-top:14px;font-size:12.5px;">Questions? Visit the <a href="https://itresources.newfold.com/airepo/" target="_blank" rel="noopener">IT AI Knowledge Hub</a> or submit a request via <a href="https://newfold.service-now.com/sp" target="_blank" rel="noopener">ServiceNow</a>.</p>
+  </div>
+
+  <!-- FAQs -->
+  <div class="start-section">
+    <h3><span class="icon">❓</span>Quick FAQs</h3>
+    <div class="h3-sub">Common questions about getting started with AI at Newfold.</div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Do I need to know exactly which AI tool I want before submitting a request?</summary>
+        <div class="faq-body">No. What matters most is that you can clearly describe the problem you're trying to solve. If you're not sure which tool is the best fit, that's perfectly fine — do some basic research, share what you found, and IT will help recommend the right solution.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What does a strong AI use case look like?</summary>
+        <div class="faq-body">Strong use cases focus on saving time, reducing manual effort, or improving quality. For example: drafting or rewriting recurring reports, analyzing or cleaning data in Excel, researching and synthesizing large amounts of content, or reducing repetitive admin work. If you can describe what's painful today and how AI could help, you're on the right track.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What if my idea isn't fully formed yet?</summary>
+        <div class="faq-body">That's completely normal. Start by experimenting in <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener">Copilot Chat</a> or <a href="https://api-gw.builderservices.io/nf-ai-api/NewfoldGpt" target="_blank" rel="noopener">Nova</a> — that's exactly what they're there for. As you explore, your use case will sharpen. The key is to have a clear problem in mind before requesting a paid tool, so IT can match you with the right solution. If you're stuck, reach out — we're happy to help you think it through.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Am I allowed to experiment with AI?</summary>
+        <div class="faq-body">Absolutely. <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener">Microsoft Copilot Chat</a> and <a href="https://api-gw.builderservices.io/nf-ai-api/NewfoldGpt" target="_blank" rel="noopener">Nova</a> are available to every employee at no cost, and they're the best place to experiment, learn, and develop your ideas. We encourage exploration — the free tools are there specifically for that purpose.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What if I can't clearly quantify the ROI?</summary>
+        <div class="faq-body">That's okay. We're not asking for a formal business case. Even a rough estimate like "this could save me an hour a week" or "this reduces manual rework on a recurring task" is helpful. A thoughtful estimate is always better than no estimate at all.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Why do some people already have premium AI tools?</summary>
+        <div class="faq-body">Some teams and roles had approved use cases prior to this process being introduced. Going forward, this framework standardizes how AI tools are requested and approved across the company — making it consistent and fair for everyone. If you have a strong use case, this process is designed to get you what you need.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What's the fastest way to get started today?</summary>
+        <div class="faq-body">Open <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener">Copilot Chat</a> (in Teams, Edge or MyApps portal) and start experimenting with your everyday work. When you've identified a clear, high-value use case, submit a request via the <a href="https://newfold.service-now.com/sp" target="_blank" rel="noopener">📋 AI Tools Request Form (ServiceNow)</a>.</div>
+      </details>
+    </div>
+  </div>
 
 </div><!-- end afa-wrap -->
 <div class="page-footer" style="margin:0 48px;">Newfold Digital · AI Tools by Function · AI for All</div>
